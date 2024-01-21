@@ -15,6 +15,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
 COPY . /var/www/html
 
 RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data *
 
 EXPOSE 80
 
