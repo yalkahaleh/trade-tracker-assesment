@@ -11,16 +11,16 @@
                 @endif
                 <p class="mt-2 text-gray-600">{{ $company->address }}</p>
 
-                @if($company->stock)
+                @if($stockData)
                     <div wire:poll.5000ms> <!-- Polling every 5 seconds -->
                     <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
                         <div class="font-semibold text-center">Price ($)</div>
                         <div class="font-semibold text-center">High ($)</div>
                         <div class="font-semibold text-center">Low ($)</div>
 
-                        <div class="text-center">{{ $company->stock->price }}</div>
-                        <div class="text-center">{{ $company->stock->day_high }}</div>
-                        <div class="text-center">{{ $company->stock->day_low }}</div>
+                        <div class="text-center">{{ $stockData[0]['price'] }}</div>
+                        <div class="text-center">{{ $stockData[0]['dayHigh'] }}</div>
+                        <div class="text-center">{{  $stockData[0]['dayLow'] }}</div>
 
                     </div>
                     <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
@@ -28,9 +28,9 @@
                         <div class="font-semibold text-center">Close ($)</div>
                         <div class="font-semibold text-center">Market Cap ($)</div>
 
-                        <div class="text-center">{{ $company->stock->open }}</div>
-                        <div class="text-center">{{ $company->stock->previous_close }}</div>
-                        <div class="text-center">{{ $company->stock->market_cap }}</div>
+                        <div class="text-center">{{ $stockData[0]['open'] }}</div>
+                        <div class="text-center">{{ $stockData[0]['previousClose'] }}</div>
+                        <div class="text-center">{{  $stockData[0]['marketCap'] }}</div>
 
                     </div>
                     <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
@@ -38,9 +38,9 @@
                         <div class="font-semibold text-center">EPS</div>
                         <div class="font-semibold text-center">PE</div>
 
-                        <div class="text-center">{{ $company->stock->avg_volume }}</div>
-                        <div class="text-center">{{ $company->stock->eps }}</div>
-                        <div class="text-center">{{ $company->stock->pe }}</div>
+                        <div class="text-center">{{ $stockData[0]['avgVolume'] }}</div>
+                        <div class="text-center">{{  $stockData[0]['eps'] }}</div>
+                        <div class="text-center">{{  $stockData[0]['pe'] }}</div>
 
                     </div>
                     </div>

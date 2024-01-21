@@ -12,7 +12,6 @@ class FMPStockDataService implements StockDataServiceInterface
         $secret = config('secret.fmpcloud_key');
         $url = 'https://fmpcloud.io/api/v3/quote/' . $symbol . '?apikey=' . $secret;
         $response = Http::get($url);
-        Log::error("this is response".$response);
         if ($response->successful()) {
             return $response->json();
         } else {
