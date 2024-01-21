@@ -1,66 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## TOC
+- [Live Demo](#live-demo)
+- [Setup & Installation](#setup--installation)
+- [Development Details](#development-details)
+- [Important Notes](#important-notes)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Live Demo
+To demonstrate the practical application of the project, you can use this link :
 
-## About Laravel
+[Live Demo](https://assessment.elite-it-team.com)
+<br>
+Login credentials :
+- **Email** : y.alkahaleh@gmail.com
+- **Password**:12345678
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Setup & Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Follow these steps to set up and run the Laravel project locally:
+### 1. Clone the Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+git clone https://github.com/yalkahaleh/trade-tracker-assesment
+```
+cd laravel-project
 
-## Learning Laravel
+### 2. Create .env File
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Create a new `.env` file in the project root.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 3. Copy .env.example
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Copy the contents of `.env.example` and paste them into the newly created `.env` file.
 
-## Laravel Sponsors
+### 4. build the image for the 'app' via docker
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+docker-compose up -d --build app
+```
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 5. Run migration via docker
 
-## Contributing
+```bash
+docker-compose exec app php artisan migrate:fresh --seed
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 7. build npm
 
-## Code of Conduct
+```bash
+npm run build
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+## Development Details
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Laravel Version
+The project utilizes Laravel version 10 and livewire 3.
 
-## License
+### 2. Project Structure
+the project follows DDD principles, organizing code into domain-specific entities and services.
+### Domains
+<ul>
+<li>The Companies domain includes logic related to company profiles, details, and on-demand fetching of stock data.</li>
+<li>The Users domain handles user authentication and management.</li>
+</ul>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Livewire Components
+<ul>
+<li>
+The project leverages Livewire components for dynamic user interfaces, including user registration, login, and company data presentation.
+</li>
+<li>Notably, the approach for stock data display was shifted to on-demand fetching within Livewire components.</li>
+</ul>
+
+### Views Structure
+
+<ul>
+<li>The views are structured in a way that supports the DDD approach, with separate directories for each domain.</li>
+<li>Tailwind CSS is utilized for styling, ensuring a responsive and modern user interface.</li>
+<li>Key view directories include:</li>
+<ul>
+<li>auth for authentication-related views (login, registration).
+</li>
+<li>company for displaying company information, stock data and create company.
+</li>
+</ul>
+</ul>
+
+### Frontend Interaction
+<ul>
+<li>Livewire is used extensively for real-time interactivity without full page reloads.
+</li>
+<li>The stock data display updates dynamically, reflecting real-time data fetched when a user views a Stock details.</li>
+</ul>
+
+## Important Notes
+
+### 1. Login
+if you don't want to register
+you can use credentials below :
+```bash
+email : y.alkahaleh@gmail.com
+password : 12345678
+```
+
+<br>
+If you have any questions or need assistance, feel free to contact me via email

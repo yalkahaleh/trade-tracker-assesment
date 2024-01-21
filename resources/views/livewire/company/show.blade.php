@@ -12,7 +12,7 @@
                 <p class="mt-2 text-gray-600">{{ $company->address }}</p>
 
                 @if($stockData)
-                    <div wire:poll.5000ms> <!-- Polling every 5 seconds -->
+                    <div wire:poll.15000ms> <!-- Polling every 15 seconds -->
                     <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
                         <div class="font-semibold text-center">Price ($)</div>
                         <div class="font-semibold text-center">High ($)</div>
