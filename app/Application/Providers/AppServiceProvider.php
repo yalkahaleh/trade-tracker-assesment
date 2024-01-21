@@ -18,6 +18,7 @@ class   AppServiceProvider extends ServiceProvider
         Livewire::component('users.register', \App\Domain\Users\Livewire\Register::class);
         Livewire::component('users.login', \App\Domain\Users\Livewire\Login::class);
         Livewire::component('companies.create', \App\Domain\Companies\Livewire\Create::class);
+        Livewire::component('companies.show', \App\Domain\Companies\Livewire\Show::class);
 
 
 
