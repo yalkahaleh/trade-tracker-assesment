@@ -12,7 +12,13 @@ class UpdateStockData extends Command
 {
     protected $signature = 'update:stockdata';
     protected $description = 'Update stock data from the API';
+    private  $stockDataService;
 
+    public function __construct(StockDataServiceInterface $stockDataService)
+    {
+        parent::__construct();
+        $this->stockDataService=$stockDataService;
+    }
 
     /**
      * Execute the console command.
@@ -23,9 +29,8 @@ class UpdateStockData extends Command
         $i = 1;
 
         foreach ($symbols as $symbol) {
-            $response = Http::get(url('/api/stock-data/' . $symbol));
-            if ($response->successful()) {
-                $data = $response->json();
+            $data = $this->stockDataService->fetchStockData($symbol);
+            if ($data) {
                 StockData::create([
                     'company_id' => $i,
                     'price' => $data[0]['price'],

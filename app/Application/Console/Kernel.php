@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('update:stockdata')->everyMinute();
+        $schedule->command('update:stockdata')->everyFiveSeconds();
 
     }
 
