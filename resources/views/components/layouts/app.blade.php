@@ -25,8 +25,6 @@
     </div>
 </nav>
 
-
-
 {{ $slot }}
 @livewireScripts
 </body>

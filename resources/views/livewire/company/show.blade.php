@@ -1,6 +1,6 @@
 <div class="container mx-auto px-4 py-8">
     <div class="max-w-xl mx-auto bg-white rounded-lg overflow-hidden md:max-w-2xl">
-        <div wire:poll.60000ms class="w-full p-4"> <!-- Polling every minute -->
+        <div class="w-full p-4">
             <div class="flex justify-center">
                 <img class="rounded-full h-40 w-40 object-cover" src="{{ asset($company->logo) }}" alt="{{ $company->name }} Logo">
             </div>
@@ -12,6 +12,7 @@
                 <p class="mt-2 text-gray-600">{{ $company->address }}</p>
 
                 @if($company->stock)
+                    <div wire:poll.5000ms> <!-- Polling every 5 seconds -->
                     <div class="mt-4 grid grid-cols-3 gap-4 text-sm">
                         <div class="font-semibold text-center">Price ($)</div>
                         <div class="font-semibold text-center">High ($)</div>
@@ -42,6 +43,8 @@
                         <div class="text-center">{{ $company->stock->pe }}</div>
 
                     </div>
+                    </div>
+
                 @else
                     <p>No stock data available.</p>
                 @endif

@@ -1,6 +1,6 @@
 <?php
 
-use App\Application\Controllers\Stocks\StockDataController;
+use App\Application\Controllers\Companies\StockDataController;
 use Illuminate\Support\Facades\Route;
 
 /*

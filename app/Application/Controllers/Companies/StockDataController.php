@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Application\Controllers\Stocks;
+namespace App\Application\Controllers\Companies;
 
 use App\Application\Controllers\Controller;
-use App\Domain\Stocks\StockDataServiceInterface;
-use Illuminate\Http\Request;
+use App\Domain\Companies\StockDataServiceInterface;
 
 class StockDataController extends Controller
 {

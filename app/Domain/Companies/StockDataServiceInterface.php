@@ -1,5 +1,5 @@
 <?php
-namespace App\Domain\Stocks;
+namespace App\Domain\Companies;
 
 interface StockDataServiceInterface
 {

@@ -2,7 +2,7 @@
 
 namespace App\Application\Providers;
 
-use App\Domain\Stocks\StockDataServiceInterface;
+use App\Domain\Companies\StockDataServiceInterface;
 use App\Infrastructure\Services\FMPStockDataService;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
