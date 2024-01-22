@@ -61,7 +61,7 @@ docker-compose exec app npm install
 docker-compose exec app npm run build
 ```
 
-### 9.go to localhost
+### 9. go to localhost
 tab in your browser 127.0.0.1:8000
 
 ## Development Details
