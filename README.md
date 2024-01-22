@@ -37,17 +37,28 @@ Copy the contents of `.env.example` and paste them into the newly created `.env`
 docker-compose up -d --build app
 ```
 
+### 5. Run composer install via docker
 
-### 5. Run migration via docker
+```bash
+docker-compose exec app composer install
+```
+
+### 6. Run migration via docker
 
 ```bash
 docker-compose exec app php artisan migrate:fresh --seed
 ```
 
-### 7. build npm
+### 7. install npm via docker
 
 ```bash
-npm run build
+docker-compose exec app npm install
+```
+
+### 8. build npm via docker
+
+```bash
+docker-compose exec app npm run build
 ```
 
 
@@ -102,6 +113,9 @@ you can use credentials below :
 email : y.alkahaleh@gmail.com
 password : 12345678
 ```
+
+### 2. API Limitation
+note that the api for fetching stock is limited by 250 request
 
 <br>
 If you have any questions or need assistance, feel free to contact me via email

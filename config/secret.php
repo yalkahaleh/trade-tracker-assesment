@@ -2,5 +2,5 @@
 
 
 return [
-    'fmpcloud_key'=>'4b3419c279b32a78b49f411fab60bd24'
+    'fmpcloud_key'=>'454135db3d18bd304e45e9ea36f251c5'
 ];
